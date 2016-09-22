@@ -1,18 +1,22 @@
-
 {
   "name": "react-native-material-calendar",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple material-themed calendar for react native android",
+  "main": "MaterialCalendar.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react-native"
   ],
-  "author": "",
-  "license": "",
-  "peerDependencies": {
-    "react-native": "^0.29.0"
-  }
+  "author": "SevenSwen <tihonenko.v.v@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SevenSwen/react-native-material-calendar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SevenSwen/react-native-material-calendar/issues"
+  },
+  "homepage": "https://github.com/SevenSwen/react-native-material-calendar#readme"
 }

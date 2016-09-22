@@ -1,5 +1,4 @@
-
-package com.sevenswen;
+package com.sevenswen.materialcalendar;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;

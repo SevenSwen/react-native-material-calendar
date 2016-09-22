@@ -1,5 +1,5 @@
 
-package com.sevenswen;
+package com.sevenswen.materialcalendar;
 
 import java.util.Arrays;
 import java.util.Collections;
