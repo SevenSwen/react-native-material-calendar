@@ -46,7 +46,7 @@ class Calendar extends Component {
         super();
         this._onDateChange = this._onDateChange.bind(this);
     }
-    
+
     _onDateChange(event) {
         this.props.onDateChange && this.props.onDateChange(event.nativeEvent);
     }
@@ -63,13 +63,10 @@ class Calendar extends Component {
         };
 
         return (
-            // <RNMaterialCalendar
-            //     {...rest}
-            //     style={style}
-            //     onDateChange={this._onDateChange} />
-            <View>
-                
-            </View>
+            <RNMaterialCalendar
+                {...rest}
+                style={style}
+                onDateChange={this._onDateChange} />
         );
     }
 }

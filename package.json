@@ -2,12 +2,17 @@
   "name": "react-native-material-calendar",
   "version": "1.0.1",
   "description": "A simple material-themed calendar for react native android",
-  "main": "MaterialCalendar.js",
+  "main": "src/MaterialCalendar.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native"
+    "react-component",
+    "react-native",
+    "android",
+    "material",
+    "material-design",
+    "calendar"
   ],
   "author": "SevenSwen <tihonenko.v.v@gmail.com>",
   "license": "ISC",
