@@ -7,7 +7,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.events.Event;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 
-import com.sevenswen.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

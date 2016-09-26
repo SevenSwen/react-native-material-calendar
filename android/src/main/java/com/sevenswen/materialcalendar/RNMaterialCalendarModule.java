@@ -11,9 +11,9 @@ import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.UIManagerModule;
 
-import com.sevenswen.materialcalendarview.CalendarDay;
-import com.sevenswen.materialcalendarview.MaterialCalendarView;
-import com.sevenswen.materialcalendarview.OnDateSelectedListener;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.text.DateFormat;
 import java.text.ParseException;

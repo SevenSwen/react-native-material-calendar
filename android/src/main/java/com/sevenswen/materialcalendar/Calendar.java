@@ -4,7 +4,7 @@ import android.view.ViewGroup;
 
 import com.facebook.react.uimanager.ThemedReactContext;
 
-import com.sevenswen.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 public class Calendar extends MaterialCalendarView {
 

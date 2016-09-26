@@ -21,6 +21,6 @@ android {
 
 dependencies {
     compile 'com.facebook.react:react-native:0.20.+'
-    compile 'com.sevenswen:material-calendarview:1.4.0'
+    compile 'com.prolificinteractive:material-calendarview:1.4.0'
 }
   
