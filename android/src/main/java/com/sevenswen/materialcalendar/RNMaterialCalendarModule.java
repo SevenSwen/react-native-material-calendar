@@ -1,10 +1,5 @@
 package com.sevenswen.materialcalendar;
 
-//import com.facebook.react.bridge.ReactApplicationContext;
-//import com.facebook.react.bridge.ReactContextBaseJavaModule;
-//import com.facebook.react.bridge.ReactMethod;
-//import com.facebook.react.bridge.Callback;
-
 import android.graphics.Color;
 import android.os.SystemClock;
 
@@ -16,13 +11,14 @@ import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.UIManagerModule;
 
-import com.prolificinteractive.materialcalendarview.CalendarDay;
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
+import com.sevenswen.materialcalendarview.CalendarDay;
+import com.sevenswen.materialcalendarview.MaterialCalendarView;
+import com.sevenswen.materialcalendarview.OnDateSelectedListener;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -30,13 +26,6 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 public class RNMaterialCalendarModule extends SimpleViewManager<Calendar> {
-
-//  private final ReactApplicationContext reactContext;
-//
-//  public RNMaterialCalendarModule(ReactApplicationContext reactContext) {
-//    super(reactContext);
-//    this.reactContext = reactContext;
-//  }
 
   @Override
   public String getName() { return "RNMaterialCalendar"; }

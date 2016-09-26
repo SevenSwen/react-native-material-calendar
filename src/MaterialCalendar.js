@@ -2,11 +2,11 @@
 
 import React, { Component, PropTypes } from 'react';
 import {
-    NativeModules,
+    requireNativeComponent,
     View
 } from 'react-native';
 
-const { RNMaterialCalendar } = NativeModules;
+var NativeCalendar = requireNativeComponent('RNMaterialCalendar', Calendar);
 
 const FIRST_DAY_OF_WEEK = [
     'monday',
@@ -63,7 +63,7 @@ class Calendar extends Component {
         };
 
         return (
-            <RNMaterialCalendar
+            <NativeCalendar
                 {...rest}
                 style={style}
                 onDateChange={this._onDateChange} />
@@ -86,6 +86,6 @@ Calendar.propTypes = {
 
 Calendar.defaultProps = {
     topbarVisible: true
-}
+};
 
 export default Calendar;

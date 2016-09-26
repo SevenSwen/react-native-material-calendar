@@ -3,7 +3,8 @@ package com.sevenswen.materialcalendar;
 import android.view.ViewGroup;
 
 import com.facebook.react.uimanager.ThemedReactContext;
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+
+import com.sevenswen.materialcalendarview.MaterialCalendarView;
 
 public class Calendar extends MaterialCalendarView {
 
