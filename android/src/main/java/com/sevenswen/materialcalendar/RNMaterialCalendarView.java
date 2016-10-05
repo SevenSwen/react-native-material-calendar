@@ -6,9 +6,9 @@ import com.facebook.react.uimanager.ThemedReactContext;
 
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
-public class Calendar extends MaterialCalendarView {
+public class RNMaterialCalendarView extends MaterialCalendarView {
 
-    public Calendar(ThemedReactContext context) {
+    public RNMaterialCalendarView(ThemedReactContext context) {
         super(context);
         setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,

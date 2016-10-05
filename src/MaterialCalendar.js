@@ -1,12 +1,13 @@
 'use strict';
 
 import React, { Component, PropTypes } from 'react';
-import {
+import ReactNative, {
     requireNativeComponent,
-    View
+    View,
+    UIManager
 } from 'react-native';
 
-var NativeCalendar = requireNativeComponent('RNMaterialCalendar', Calendar);
+const NativeCalendar = requireNativeComponent('RNMaterialCalendar', Calendar);
 
 const FIRST_DAY_OF_WEEK = [
     'monday',
@@ -29,32 +30,47 @@ const SELECTION_MODES = [
     'multiple'
 ];
 
-function colorType(props, propName, componentName) {
-    var checker = function() {
-        var color = props[propName];
-        var regex = /^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/;
-        if (!regex.test(color)) {
-            return new Error('Only accept color formats: #RRGGBB and #AARRGGBB');
-        }
-    };
-
-    return PropTypes.string(props, propName, componentName) || checker();
-}
+var MATERIAL_CALENDAR_REF = 'calendar';
 
 class Calendar extends Component {
-    constructor() {
-        super();
-        this._onDateChange = this._onDateChange.bind(this);
-    }
+    getInnerViewNode = (): ReactComponent => {
+        return this.refs[MATERIAL_CALENDAR_REF].getInnerViewNode();
+    };
 
-    _onDateChange(event) {
+    _onDateChange = (event) => {
         this.props.onDateChange && this.props.onDateChange(event.nativeEvent);
-    }
+    };
+
+    goToPrevious = () => {
+        UIManager.dispatchViewManagerCommand(
+            ReactNative.findNodeHandle(this),
+            UIManager.RNMaterialCalendar.Commands.goToPrevious,
+            []
+        );
+    };
+
+    goToNext = () => {
+        UIManager.dispatchViewManagerCommand(
+            ReactNative.findNodeHandle(this),
+            UIManager.RNMaterialCalendar.Commands.goToNext,
+            []
+        );
+    };
+
+    setCurrentDate = (date) => {
+        console.log("date", [date.getYear(), date.getMonth(), date.getDate()]);
+        UIManager.dispatchViewManagerCommand(
+            ReactNative.findNodeHandle(this),
+            UIManager.RNMaterialCalendar.Commands.setCurrentDate,
+            [[date.getFullYear(), date.getMonth(), date.getDate()]]
+        );
+    };
 
     render() {
-        var { style, ...rest } = this.props,
+        var { style, eventsDates, ...rest } = this.props,
             width = rest.width,
-            height = rest.topbarVisible ? width / 7 * 8 : width;
+            height = rest.topbarVisible ? width / 7 * 8 : width,
+            decoratedEventsDates = eventsDates.map((date, index) => ([date.getFullYear(), date.getMonth(), date.getDate()]));
 
         style = {
             ...style,
@@ -65,8 +81,10 @@ class Calendar extends Component {
         return (
             <NativeCalendar
                 {...rest}
+                ref={MATERIAL_CALENDAR_REF}
                 style={style}
-                onDateChange={this._onDateChange} />
+                eventsDates={decoratedEventsDates}
+                onDateChange={this._onDateChange}/>
         );
     }
 }
@@ -75,13 +93,18 @@ Calendar.propTypes = {
     ...View.propTypes,
     width: PropTypes.number.isRequired,
     topbarVisible: PropTypes.bool,
-    arrowColor: colorType,
+    arrowColor: PropTypes.string,
     firstDayOfWeek: PropTypes.oneOf(FIRST_DAY_OF_WEEK),
     showDate: PropTypes.oneOf(SHOWING_DATE),
     currentDate: PropTypes.arrayOf(PropTypes.oneOfType([ PropTypes.string, PropTypes.number ])),
     selectionMode: PropTypes.oneOf(SELECTION_MODES),
-    selectionColor: colorType,
-    selectedDates: PropTypes.arrayOf(PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]))
+    selectionColor: PropTypes.string,
+    selectedDates: PropTypes.arrayOf(PropTypes.oneOfType([ PropTypes.string, PropTypes.number ])),
+
+    onDateChange: PropTypes.func,
+    initDecorator: PropTypes.bool,
+    weekDayFormatter: PropTypes.arrayOf(PropTypes.string),
+    eventsDates: PropTypes.arrayOf(PropTypes.instanceOf(Date))
 };
 
 Calendar.defaultProps = {

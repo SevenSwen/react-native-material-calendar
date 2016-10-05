@@ -1,6 +1,4 @@
-package com.sevenswen.materialcalendar;
-
-import android.util.Log;
+package com.sevenswen.materialcalendar.events;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableMap;
@@ -12,7 +10,7 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-public class CalendarEvent extends Event<CalendarEvent>{
+public class DateChangeEvent extends Event<DateChangeEvent>{
     public static final String EVENT_NAME = "topDateChange";
 
     private static final String DATE_FORMAT = "yyyy/MM/dd";
@@ -24,7 +22,7 @@ public class CalendarEvent extends Event<CalendarEvent>{
     private final CalendarDay date;
     private final boolean selected;
 
-    public CalendarEvent(int viewId, CalendarDay date, boolean selected) {
+    public DateChangeEvent(int viewId, CalendarDay date, boolean selected) {
         super(viewId);
         this.date = date;
         this.selected = selected;
