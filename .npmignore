@@ -1,0 +1,6 @@
+.gitignore
+.npmignore
+.idea
+Example.gif
+example
+npm-debug.log

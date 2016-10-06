@@ -21,6 +21,8 @@ import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 import com.prolificinteractive.materialcalendarview.format.ArrayWeekDayFormatter;
 
 import com.sevenswen.materialcalendar.events.DateChangeEvent;
+import com.sevenswen.materialcalendar.events.MonthChangeEvent;
+
 import com.sevenswen.materialcalendar.decorators.RNDayViewDecorator;
 import com.sevenswen.materialcalendar.decorators.RNEventDecorator;
 import com.sevenswen.materialcalendar.decorators.RNOtherDayViewDecorator;
@@ -88,6 +90,12 @@ public class RNMaterialCalendarModule extends SimpleViewManager<RNMaterialCalend
                             "phasedRegistrationNames",
                             MapBuilder.of(
                                     "bubbled", "onDateChange", "captured", "onDateChangeCapture")))
+            .put(
+                    "topMonthChange",
+                    MapBuilder.of(
+                            "phasedRegistrationNames",
+                            MapBuilder.of(
+                                    "bubbled", "onMonthChange", "captured", "onMonthChangeCapture")))
             .build();
   }
 
@@ -106,6 +114,11 @@ public class RNMaterialCalendarModule extends SimpleViewManager<RNMaterialCalend
     view.setOnMonthChangedListener(new OnMonthChangedListener() {
       @Override
       public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
+        reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
+                .dispatchEvent(new MonthChangeEvent(
+                        view.getId(),
+                        date));
+
         widget.removeDecorators();
         widget.addDecorators(
                 new RNDayViewDecorator(date.getMonth()),
@@ -201,6 +214,7 @@ public class RNMaterialCalendarModule extends SimpleViewManager<RNMaterialCalend
                         eventsDates.getArray(i).getInt(2))); // day
       }
 
+      widget.removeDecorators();
       view.addDecorators(
               new RNDayViewDecorator(day.getMonth()),
               new RNOtherDayViewDecorator(day.getMonth()),

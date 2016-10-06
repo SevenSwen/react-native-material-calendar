@@ -14,7 +14,7 @@
 
 #### Android
 
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
+1. Open up `android/app/src/main/java/[...]/MainApplication.java`
   - Add `import com.sevenswen.materialcalendar.RNMaterialCalendarPackage;` to the imports at the top of the file
   - Add `new RNMaterialCalendarPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
@@ -32,7 +32,25 @@
 ```javascript
 import RNMaterialCalendar from 'react-native-material-calendar';
 
-// TODO: What do with the module?
+...
+<RNMaterialCalendar
+              ref={calendar => this.calendar = calendar}
+              width={400}
+              showDate="all"
+              selectionMode="single"
+              initDecorator={true}
+              eventsDates={this.state.eventsDates}
+              weekDayFormatter={["S","M","T","W","T","F","S"]}
+              topbarVisible={false}
+              onDateChange={(event) => {
+                this.setState({selectedDate: new Date(event.date)})}
+              }
+              onMonthChange={(event) => {
+                this.setState({currentMonth: new Date(event.date)})}
+              }
+          />
+...
+
 RNMaterialCalendar;
 ```
   

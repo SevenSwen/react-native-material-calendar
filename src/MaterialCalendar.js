@@ -41,6 +41,10 @@ class Calendar extends Component {
         this.props.onDateChange && this.props.onDateChange(event.nativeEvent);
     };
 
+    _onMonthChange = (event) => {
+        this.props.onMonthChange && this.props.onMonthChange(event.nativeEvent);
+    };
+
     goToPrevious = () => {
         UIManager.dispatchViewManagerCommand(
             ReactNative.findNodeHandle(this),
@@ -58,7 +62,6 @@ class Calendar extends Component {
     };
 
     setCurrentDate = (date) => {
-        console.log("date", [date.getYear(), date.getMonth(), date.getDate()]);
         UIManager.dispatchViewManagerCommand(
             ReactNative.findNodeHandle(this),
             UIManager.RNMaterialCalendar.Commands.setCurrentDate,
@@ -84,7 +87,8 @@ class Calendar extends Component {
                 ref={MATERIAL_CALENDAR_REF}
                 style={style}
                 eventsDates={decoratedEventsDates}
-                onDateChange={this._onDateChange}/>
+                onDateChange={this._onDateChange}
+                onMonthChange={this._onMonthChange}/>
         );
     }
 }
@@ -102,6 +106,7 @@ Calendar.propTypes = {
     selectedDates: PropTypes.arrayOf(PropTypes.oneOfType([ PropTypes.string, PropTypes.number ])),
 
     onDateChange: PropTypes.func,
+    onMonthChange: PropTypes.func,
     initDecorator: PropTypes.bool,
     weekDayFormatter: PropTypes.arrayOf(PropTypes.string),
     eventsDates: PropTypes.arrayOf(PropTypes.instanceOf(Date))
