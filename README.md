@@ -54,7 +54,5 @@ import RNMaterialCalendar from 'react-native-material-calendar';
               }
           />
 ...
-
-RNMaterialCalendar;
 ```
   
