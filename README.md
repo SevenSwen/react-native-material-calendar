@@ -7,7 +7,7 @@
 
 ## Demonstration
 
-[So smooth, such cool, very fast, wow](https://raw.githubusercontent.com/SevenSwen/react-native-material-calendar/development/Example.gif)
+![So smooth, such cool, very fast, wow](https://raw.githubusercontent.com/SevenSwen/react-native-material-calendar/development/Example.gif)
 
 ### Mostly automatic installation
 
