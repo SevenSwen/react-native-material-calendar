@@ -5,6 +5,10 @@
 
 `$ npm install react-native-material-calendar --save`
 
+## Demonstration
+
+[So smooth, such cool, very fast, wow](https://raw.githubusercontent.com/SevenSwen/react-native-material-calendar/development/Example.gif)
+
 ### Mostly automatic installation
 
 `$ react-native link react-native-material-calendar`
