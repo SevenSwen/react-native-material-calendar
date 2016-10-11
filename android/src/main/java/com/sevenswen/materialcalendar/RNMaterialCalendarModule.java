@@ -20,7 +20,7 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 import com.prolificinteractive.materialcalendarview.format.ArrayWeekDayFormatter;
 
-import com.sevenswen.materialcalendar.events.DateChangeEvent;
+import com.sevenswen.materialcalendar.events.DateSelectEvent;
 import com.sevenswen.materialcalendar.events.MonthChangeEvent;
 
 import com.sevenswen.materialcalendar.decorators.RNDayViewDecorator;
@@ -89,7 +89,7 @@ public class RNMaterialCalendarModule extends SimpleViewManager<RNMaterialCalend
                     MapBuilder.of(
                             "phasedRegistrationNames",
                             MapBuilder.of(
-                                    "bubbled", "onDateChange", "captured", "onDateChangeCapture")))
+                                    "bubbled", "onDateSelect", "captured", "onDateSelectCapture")))
             .put(
                     "topMonthChange",
                     MapBuilder.of(
@@ -105,7 +105,7 @@ public class RNMaterialCalendarModule extends SimpleViewManager<RNMaterialCalend
       @Override
       public void onDateSelected(MaterialCalendarView widget, CalendarDay date, boolean selected) {
         reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
-                .dispatchEvent(new DateChangeEvent(
+                .dispatchEvent(new DateSelectEvent(
                         view.getId(),
                         date,
                         selected));

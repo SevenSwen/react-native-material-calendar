@@ -37,8 +37,8 @@ class Calendar extends Component {
         return this.refs[MATERIAL_CALENDAR_REF].getInnerViewNode();
     };
 
-    _onDateChange = (event) => {
-        this.props.onDateChange && this.props.onDateChange(event.nativeEvent);
+    _onDateSelect = (event) => {
+        this.props.onDateSelect && this.props.onDateSelect(event.nativeEvent);
     };
 
     _onMonthChange = (event) => {
@@ -87,7 +87,7 @@ class Calendar extends Component {
                 ref={MATERIAL_CALENDAR_REF}
                 style={style}
                 eventsDates={decoratedEventsDates}
-                onDateChange={this._onDateChange}
+                onDateSelect={this._onDateSelect}
                 onMonthChange={this._onMonthChange}/>
         );
     }
@@ -105,7 +105,7 @@ Calendar.propTypes = {
     selectionColor: PropTypes.string,
     selectedDates: PropTypes.arrayOf(PropTypes.oneOfType([ PropTypes.string, PropTypes.number ])),
 
-    onDateChange: PropTypes.func,
+    onDateSelect: PropTypes.func,
     onMonthChange: PropTypes.func,
     initDecorator: PropTypes.bool,
     weekDayFormatter: PropTypes.arrayOf(PropTypes.string),
@@ -113,7 +113,8 @@ Calendar.propTypes = {
 };
 
 Calendar.defaultProps = {
-    topbarVisible: true
+    topbarVisible: true,
+    eventsDates: []
 };
 
 export default Calendar;

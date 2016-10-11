@@ -132,7 +132,7 @@ class testingProject extends Component {
               eventsDates={this.state.eventsDates}
               weekDayFormatter={["S","M","T","W","T","F","S"]}
               topbarVisible={false}
-              onDateChange={(event) => {
+              onDateSelect={(event) => {
                 this.setState({selectedDate: new Date(event.date)})}
               }
               onMonthChange={(event) => {

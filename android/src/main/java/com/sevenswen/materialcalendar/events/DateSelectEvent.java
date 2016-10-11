@@ -10,8 +10,8 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-public class DateChangeEvent extends Event<DateChangeEvent>{
-    public static final String EVENT_NAME = "topDateChange";
+public class DateSelectEvent extends Event<DateSelectEvent>{
+    public static final String EVENT_NAME = "topDateSelect";
 
     private static final String DATE_FORMAT = "yyyy/MM/dd";
     private static final DateFormat dateFormat;
@@ -22,7 +22,7 @@ public class DateChangeEvent extends Event<DateChangeEvent>{
     private final CalendarDay date;
     private final boolean selected;
 
-    public DateChangeEvent(int viewId, CalendarDay date, boolean selected) {
+    public DateSelectEvent(int viewId, CalendarDay date, boolean selected) {
         super(viewId);
         this.date = date;
         this.selected = selected;
