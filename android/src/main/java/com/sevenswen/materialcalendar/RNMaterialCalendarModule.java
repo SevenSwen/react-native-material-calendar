@@ -85,7 +85,7 @@ public class RNMaterialCalendarModule extends SimpleViewManager<RNMaterialCalend
   public Map<String, Object> getExportedCustomBubblingEventTypeConstants() {
     return MapBuilder.<String, Object>builder()
             .put(
-                    "topDateChange",
+                    "topDateSelect",
                     MapBuilder.of(
                             "phasedRegistrationNames",
                             MapBuilder.of(
