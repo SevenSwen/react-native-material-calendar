@@ -1,6 +1,6 @@
 {
   "name": "react-native-material-calendar",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A simple material-themed calendar for react native android",
   "main": "src/MaterialCalendar.js",
   "scripts": {
