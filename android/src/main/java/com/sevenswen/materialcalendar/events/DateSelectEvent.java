@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 public class DateSelectEvent extends Event<DateSelectEvent>{
     public static final String EVENT_NAME = "topDateSelect";
 
-    private static final String DATE_FORMAT = "yyyy/MM/dd";
+    private static final String DATE_FORMAT = "yyyy-MM-dd";
     private static final DateFormat dateFormat;
     static {
         dateFormat = new SimpleDateFormat(DATE_FORMAT);
